@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: lightblue;
+            }
+            h1{
+                color: green;
+                font-style: italic;
+                text-align: center;
+            }
+            p{
+                color:cadetblue;
+                font-size:200%;
+            }
+            button{
+                font-size: 200%;
+            }
+        </style>
+        <script>
+            function ov(){
+                var k=document.getElementById("h11");
+                k.innerHTML="USING JAVASCRIPT";
+                k.style.color='red';
+            }
+            function dot1(){
+                var k1=document.getElementById("i12");
+                k1.setAttribute("src","a6.jpg");
+                k1.setAttribute("width","400");
+                k1.setAttribute("height","400");
+            }
+            function pa(){
+                var k2=document.getElementById("p11")
+                k2.style.color= "green";
+            }
+            function clc(){
+                var k=document.getElementById("h11");
+                var k1=document.getElementById("i11");
+                var k2=document.getElementById("p11");
+                var k3=document.getElementById("i12");
+                var k4=document.getElementById("p22");
+                k.style.color='violet';
+                k3.setAttribute("src","a8.jpg");
+                k3.setAttribute("width","350");
+                k3.setAttribute("height","350");
+                k2.style.color="cadetblue";
+                k4.innerHTML="Events in javascript";
+                alert("returned to original");
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id="h11" onmouseover="ov()">Using javascript</h1>
+        <img id="i12" src="a8.jpg" width="350" height="350" align="right" onclick="dot1()" >
+        <p id="p11" onmouseover="pa()">this paragraph is used to describe about usage of javascript</p>
+        <p id="p22" onmouseover='this.innerHTML="Demostration of events inside a tag"'>Events in javascript</p>
+        <button id="b1" onclick="clc()">reset</button>
+    
+    
+    
+    </body>
+</html>

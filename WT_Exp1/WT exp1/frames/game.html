@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <link href="gamecss.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="ground">
+        <div id="circle" onclick="count()"></div>
+    </div>
+    <div class="details">
+        <h1>Tap The Mark</h1>
+        <h3>Click on a difficulty to start the game</h3>
+        <div class="level">
+            <button onclick="easy()">EASY</button>
+            <button onclick="medium()">MEDIUM</button>
+            <button onclick="hard()">HARD</button>
+        </div>
+        <div class="display_score">
+            <h2>Score</h2>
+            <h2 id="score">0</h2>
+        </div>
+        <button onclick="restart()">RESTART</button>
+    </div>
+    <script>
+        function easy() {
+            document.getElementById('circle')
+                .style.animationDuration = '50s';
+            document.getElementById('circle')
+                .className = 'crcl';
+        }
+  
+        
+        function medium() {
+            document.getElementById('circle')
+                .style.animationDuration = '15s';
+            document.getElementById('circle')
+                .className = 'crcl';
+        }
+  
+      
+        function hard() {
+            document.getElementById('circle')
+                .style.animationDuration = '12s';
+            document.getElementById('circle')
+                .className = 'crcl';
+        }
+  
+        let cnt = 0;
+        function count() {
+            cnt = parseInt(1) + parseInt(cnt);
+            var scr = document.getElementById('score');
+            scr.innerHTML = cnt;
+        }
+        function restart() {
+            window.location.reload();
+        }
+    </script>
+  </body>
+</html>

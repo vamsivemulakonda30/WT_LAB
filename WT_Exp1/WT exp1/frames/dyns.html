@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: lightblue;">
+    <div class="ch">Select from the choice</div>
+        <select name="" id="sel">
+            <option value="none" selected disabled hidden>Select from below!</option>
+            <option value="textbox">Text Box</option>
+            <option value="button">Button</option>
+            <option value="check">Check Box</option>
+        </select>
+        <input type="button" id="btnok" onclick="addText();" value="Click me!" />
+        <br />
+        <script>
+            function addText()
+                    {
+                    val=document.querySelector("#sel").value;
+                    if(val === "textbox")
+                    {
+                    let t1=document.createElement("input");
+                    t1.setAttribute("type","text");
+                    document.body.appendChild(t1);
+                    }
+                    else if(val === "button")
+                    {
+                        let t1=document.createElement("input");
+                    t1.setAttribute("type","button");
+                    t1.setAttribute("value","hello")
+                    document.body.appendChild(t1);
+                    }
+                    else if(val === "check")
+                    {
+                        let t1=document.createElement("input");
+                    t1.setAttribute("type","checkbox");
+       t1.setAttribute("value","Select me")
+             document.body.appendChild(t1);
+                    }
+                    }
+             </script>
+</body>
+</html>

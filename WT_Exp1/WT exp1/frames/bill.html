@@ -1,0 +1,186 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="billcss.css">
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <script src="script.js"></script>
+  <div class="pricelist">
+    <h1>FOOD MENU</h1>
+    <table>
+      <tr>
+        <td>chicken biryani</td>
+        <td>249/-</td>
+      </tr>
+      <tr>
+        <td>mutton keema biryani</td>
+        <td>329/-</td>
+      </tr>
+      <tr>
+        <td>paneer cashew birayani</td>
+        <td>249/-</td>
+      </tr>
+      <tr>
+        <td>paneer majestic</td>
+        <td>229/-</td>
+      </tr>
+      <tr>
+        <td>crispycorn</td>
+        <td>189/-</td>
+      </tr>
+      <tr>
+        <td>chicken tandoori</td>
+        <td>239/-</td>
+      </tr>
+      <tr>
+        <td>chicken lollipop</td>
+        <td>229/-</td>
+      </tr>
+      <tr>
+        <td>chocolava cake</td>
+        <td>159/-</td>
+      </tr>
+      <tr>
+        <td>softdrinks</td>
+        <td>49/-</td>
+      </tr>
+    </table>
+  </div>
+  <br>
+  <br>
+  <br>
+  <form class="bill1">
+    <select id="sf">
+      <option value="none" selected disabled hidden>Select an Option</option>
+      <option value="cb">chicken biryani</option>
+      <option value="mkb">mutton keema biryani</option>
+      <option value="pcb">paneer cashew birayani</option>
+      <option value="pm">paneer majestic</option>
+      <option value="cc">crispycorn</option>
+      <option value="ct">chicken tandoori</option>
+      <option value="cl">chicken lollipop</option>
+      <option value="clc">chocolava cake</option>
+      <option value="sd">softdrinks</option>
+    </select>
+    <br>
+    <input type="text" id="entrybox" pattern="\d*" placeholder="NO.OF items">&nbsp;<b>items</b>&nbsp;&nbsp;
+    <br>
+    <input type="button" value="ADD items" class="mybutton" id="getme">
+  </form>
+  <br><br>
+  <textarea class="bill" cols="75" rows="12" id="writeme"></textarea>
+  <br>
+  <input type="submit" value="CLEAR" class="mybutton bill3" id="clr">
+  <input type="submit" value="BILL" class="mybutton bill2" id="out">
+  <script>
+    var cbir = 249;
+var mkbir = 329;
+var pcbir = 249;
+var pmaj = 229;
+var ccorn = 189;
+var ctan = 239;
+var clol = 229;
+var ccake = 159;
+var sdrinks = 49;
+var total = 0;
+var check = 1; 
+var gw;
+var sitem;
+var peritem;
+var adder = document.querySelector("#getme");
+adder.addEventListener("click", getMe);
+var by = document.querySelector("#out");
+by.addEventListener("click", checkOut);
+var cme = document.querySelector("#clr");
+cme.addEventListener("click", clearMe);
+function getMe() {
+      sitem = document.querySelector("#sf").value;
+      peritem = parseFloat(document.querySelector("#entrybox").value);
+      gw = document.querySelector("#writeme");
+      if (Number.isNaN(peritem) === true) {
+        alert("Only Numbers !!! Or The Field is Empty");
+        check = 0;
+      }
+   else if (peritem<0) {
+        alert("Negative value!! it is invalid no. of items");
+        check = 0;
+      }
+    else{
+        check = 1;
+      }
+  if (check == 1) {
+     
+        switch (sitem) {
+          case "cb":
+            var t1 = cbir * peritem;
+            gw.value += "chicken birayani" + peritem + " no.s = " + t1 + " /-\r";
+            total += t1;
+            peritem.value = "";
+            break;
+          case "mkb":
+            var t2 = mkbir * peritem;
+            gw.value += "mutton keema biryani " + peritem + " no.s = " + t2 + " /-\r";
+            total += t2;
+            peritem.value = "";
+            break;
+          case "pcb":
+            var t3 = pcbir * peritem;
+            gw.value += "paneer cashew biryani " + peritem + " no.s  = " + t3 + " /-\r";
+            total += t3;
+            peritem.value = "";
+            break;
+          case "pm":
+            var t4 = pmaj * peritem;
+            gw.value += "paneer majestic " + peritem + " no.s  = " + t4 + " /-\r";
+            total += t4;
+            peritem.value = "";
+            break;
+          case "cc":
+            var t5 = ccorn * peritem;
+            gw.value += "crispycorn" + peritem + " no.s  = " + t5 + " /-\r";
+            total += t5;
+            peritem.value = "";
+            break;
+          case "ct":
+            var t6 = ctan * peritem;
+            gw.value += "chicken tandoori " + peritem + " no.s  = " + t6 + " /-\r";
+            total += t6;
+            peritem.value = "";
+            break;
+          case "cl":
+            var t7 = clol * peritem;
+            gw.value += "chicken lollipop" + peritem + " no.s  = " + t7 + " /-\r";
+            total += t7;
+            peritem.value = "";
+            break;
+          case "clc":
+            var t8 = ccake * peritem;
+            gw.value += "chocolava cake " + peritem + " no.s  = " + t8 + " /-\r";
+            total += t8;
+            peritem.value = "";
+            break;
+          case "sd":
+            var t9 = sdrinks * peritem;
+            gw.value += "soft drinks " + peritem + " no.s  = " + t9 + " /-\r";
+            total += t9;
+            peritem.value = "";
+            break;
+        }
+
+      }
+    }
+function checkOut() {
+      gw.value += "--------------------------------------------------------------\r";
+      gw.value += "Your Total Bill Is = " + total + " rs Thanks For Visiting! Visit Again! :)\r";
+      gw.value += "--------------------------------------------------------------\r";
+      total = 0;
+    }
+    function clearMe () {
+      gw.value = "";
+    }
+  </script>
+</body>
+
+</html>

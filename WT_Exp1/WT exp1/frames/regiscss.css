@@ -1,0 +1,30 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+.title{
+  background-color: blueviolet;
+  font-size: 10px;
+  color: whitesmoke;
+  width: auto;
+  padding: 30px;
+}
+.forms{
+  background-color: #33F6FF;
+  width:auto;
+}.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+button {
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
